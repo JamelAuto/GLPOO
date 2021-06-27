@@ -67,7 +67,7 @@ public class MusicHubController {
                 Song s = theHubView.addSongView();
                 theHub.addElement(s);
                 Iterator<AudioElement> it = theHub.elements();
-                theHubView.addSongViewDisplay(it);
+                theHubView.addSongViewDisplayView(it);
                 menuController();
                 break;
             case 'a':
@@ -75,26 +75,15 @@ public class MusicHubController {
                 Album a = theHubView.addAlbumView();
                 theHub.addAlbum(a);
                 Iterator<Album> ita = theHub.albums();
-                theHubView.addAlumViewDisplay(ita);
+                theHubView.addAlumViewDisplayView(ita);
                 menuController();
                 break;
             case '+':
                 //add a song to an album:
                 Iterator<AudioElement> itae = theHub.elements();
-                while (itae.hasNext()) {
-                    AudioElement ae = itae.next();
-                    if ( ae instanceof Song) System.out.println(ae.getTitle());
-                }
-                String songTitle = theHubView.genericScanner();
-
-                System.out.println("Type the name of the album you wish to enrich. Available albums: ");
+                String songTitle = theHubView.chooseSongToAddView(itae);
                 Iterator<Album> ait = theHub.albums();
-                while (ait.hasNext()) {
-                    Album al = ait.next();
-                    System.out.println(al.getTitle());
-                }
-                String titleAlbum = theHubView.genericScanner();
-
+                String titleAlbum = theHubView.chooseAlbumToAddView(ait);
                 try {
                     theHub.addElementToAlbum(songTitle, titleAlbum);
                 } catch (NoAlbumFoundException ex){
@@ -109,36 +98,25 @@ public class MusicHubController {
                 // add a new audiobook
                 AudioBook b = theHubView.addAudioBookView();
                 theHub.addElement(b);
-                System.out.println("Audiobook created! New element list: ");
                 Iterator<AudioElement> itl = theHub.elements();
                 while (itl.hasNext()) System.out.println(itl.next().getTitle());
                 menuController();
                 break;
             case 'p':
+                // Detailler le bug d'attente lors de la creation de playlist lié au scanner
                 //create a new playlist from existing elements
-                System.out.println("Add an existing song or audiobook to a new playlist");
-                System.out.println("Existing playlists:");
                 Iterator<PlayList> itpl = theHub.playlists();
-                while (itpl.hasNext()) {
-                    PlayList pl = itpl.next();
-                    System.out.println(pl.getTitle());
-                }
-                System.out.println("Type the name of the playlist you wish to create:");
-                String playListTitle = theHubView.genericScanner();
+                String playListTitle = theHubView.createNewPlaylistTitleView(itpl);
                 PlayList pl = new PlayList(playListTitle);
                 theHub.addPlaylist(pl);
-                System.out.println("Available elements: ");
-
                 Iterator<AudioElement> itael = theHub.elements();
-                while (itael.hasNext()) {
-                    AudioElement ae = itael.next();
-                    System.out.println(ae.getTitle());
-                }
+                theHubView.playlistAvailableElementsView(itael);
                 while (theHubView.menuView() != 'n') 	{
                     System.out.println("Type the name of the audio element you wish to add or 'n' to exit:");
                     String elementTitle = theHubView.genericScanner();
                     try {
                         theHub.addElementToPlayList(elementTitle, playListTitle);
+                        System.out.println("Playlist created!");
                     } catch (NoPlayListFoundException ex) {
                         System.out.println (ex.getMessage());
                     } catch (NoElementFoundException ex) {
@@ -148,24 +126,18 @@ public class MusicHubController {
                     System.out.println("Type y to add a new one, n to end");
                     theHubView.menuView();
                 }
-                System.out.println("Playlist created!");
                 menuController();
                 break;
             case '-':
                 //delete a playlist
-                System.out.println("Delete an existing playlist. Available playlists:");
                 Iterator<PlayList> itp = theHub.playlists();
-                while (itp.hasNext()) {
-                    PlayList p = itp.next();
-                    System.out.println(p.getTitle());
-                }
-                String plTitle = theHubView.genericScanner();
+                String plTitle = theHubView.deletePlaylistView(itp);
                 try {
                     theHub.deletePlayList(plTitle);
+                    System.out.println("Playlist deleted!");
                 }	catch (NoPlayListFoundException ex) {
                     System.out.println (ex.getMessage());
                 }
-                System.out.println("Playlist deleted!");
                 menuController();
 
                 break;

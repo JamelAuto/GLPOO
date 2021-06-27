@@ -1,9 +1,6 @@
 package musichub.view;
 
-import musichub.business.Album;
-import musichub.business.AudioBook;
-import musichub.business.AudioElement;
-import musichub.business.Song;
+import musichub.business.*;
 
 import java.util.Iterator;
 import java.util.List;
@@ -29,6 +26,13 @@ public class MusicHubView {
                     System.out.println("Add an existing song to an existing album");
                     System.out.println("Type the name of the song you wish to add. Available songs: ");
                     break;
+                case 'p':
+                    System.out.println("Add an existing song or audiobook to a new playlist");
+                    System.out.println("Existing playlists:");
+                    break;
+                case '-':
+                    System.out.println("Delete an existing playlist. Available playlists:");
+                    break;
             }
             return choice.charAt(0);
         }
@@ -39,6 +43,15 @@ public class MusicHubView {
         Scanner scan = new Scanner(System.in);
         String string = scan.nextLine();
         return string;
+    }
+
+    public String deletePlaylistView(Iterator<PlayList> itp){
+        while (itp.hasNext()) {
+            PlayList p = itp.next();
+            System.out.println(p.getTitle());
+        }
+        String plTitle = genericScanner();
+        return plTitle;
     }
 
     public AudioBook addAudioBookView(){
@@ -56,10 +69,48 @@ public class MusicHubView {
         System.out.println("AudioBook language (french, english, italian, spanish, german)");
         String bLanguage = genericScanner();
         AudioBook b = new AudioBook (bTitle, bArtist, bLength, bContent, bLanguage, bCategory);
+        System.out.println("Audiobook created! New element list: ");
         return b;
     }
 
-    public void addSongViewDisplay(Iterator<AudioElement> it){
+    public void playlistAvailableElementsView(Iterator<AudioElement> itael){
+        System.out.println("Available elements: ");
+        while (itael.hasNext()) {
+            AudioElement ae = itael.next();
+            System.out.println(ae.getTitle());
+        }
+    }
+
+    public String createNewPlaylistTitleView(Iterator<PlayList> itpl){
+        while (itpl.hasNext()) {
+            PlayList pl = itpl.next();
+            System.out.println(pl.getTitle());
+        }
+        System.out.println("Type the name of the playlist you wish to create:");
+        String playListTitle = genericScanner();
+        return  playListTitle;
+    }
+
+    public String chooseAlbumToAddView(Iterator<Album> ait) {
+        while (ait.hasNext()) {
+            Album al = ait.next();
+            System.out.println(al.getTitle());
+        }
+        String titleAlbum = genericScanner();
+        return titleAlbum;
+    }
+
+    public String chooseSongToAddView(Iterator<AudioElement> itae){
+        while (itae.hasNext()) {
+            AudioElement ae = itae.next();
+            if ( ae instanceof Song) System.out.println(ae.getTitle());
+        }
+        String songTitle = genericScanner();
+        System.out.println("Type the name of the album you wish to enrich. Available albums: ");
+        return songTitle;
+    }
+
+    public void addSongViewDisplayView(Iterator<AudioElement> it){
         System.out.println("New element list: ");
         while (it.hasNext()) System.out.println(it.next().getTitle());
         System.out.println("Song created!");
@@ -81,7 +132,7 @@ public class MusicHubView {
         return s;
     }
 
-    public void addAlumViewDisplay(Iterator<Album> ita){
+    public void addAlumViewDisplayView(Iterator<Album> ita){
         System.out.println("New list of albums: ");
         while (ita.hasNext()) System.out.println(ita.next().getTitle());
         System.out.println("Album created!");
