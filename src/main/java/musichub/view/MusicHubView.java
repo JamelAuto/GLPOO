@@ -97,7 +97,7 @@ public class MusicHubView {
         int aLength = Integer.parseInt(genericScanner());
         System.out.println("Album date as YYYY-DD-MM: ");
         String aDate = genericScanner();
-        Album a = new Album(aTitle, aArtist, aLength, aDate);
+        Album a =  Album.getInstance(aTitle, aArtist, aLength, aDate);
         return a;
     }
 
