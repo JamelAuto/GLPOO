@@ -3,6 +3,9 @@ package musichub.controller;
 import musichub.business.*;
 import musichub.view.MusicHubView;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,7 +14,7 @@ public class MusicHubController {
     private MusicHub theHub = new MusicHub ();
     private MusicHubView theHubView = new MusicHubView();
 
-    public void mainController(){
+    public void mainController() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         initializeProgram();
         menuController();
     }
@@ -20,7 +23,7 @@ public class MusicHubController {
         theHubView.displayHelp();
     }
 
-    private void menuController(){
+    private void menuController() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         switch (theHubView.menuView()){
             case 't':
                 //album titles, ordered by date
@@ -195,7 +198,16 @@ public class MusicHubController {
                 break;
             case 'r':
                 // play a random element
-                theHubView.displayElement(theHub.getRandomElement());
+                AudioElement randomElement = theHub.getRandomElement();
+                theHubView.displayElement(randomElement);
+                String content = randomElement.getContent();
+                Player.playElement(content);
+                menuController();
+                break;
+            case 'e':
+                // play an element
+                String content2 = theHubView.genericScanner();
+                Player.playElement(content2);
                 menuController();
                 break;
             case 'q':

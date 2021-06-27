@@ -20,6 +20,10 @@ public class MusicHubView {
                 case 'd':
                     System.out.println("Songs of an album will be displayed; enter the album name, available albums are:");
                     break;
+                case 'e':
+                    System.out.println("Enter element content full name");
+                    break;
+
             }
             return choice.charAt(0);
         }
@@ -78,6 +82,7 @@ public class MusicHubView {
     }
 
     public void printAvailableCommands() {
+        System.out.println("e: play an element");
         System.out.println("t: display the album titles, ordered by date");
         System.out.println("g: display songs of an album, ordered by genre");
         System.out.println("d: display songs of an album");

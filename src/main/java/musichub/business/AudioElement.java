@@ -1,7 +1,9 @@
 package musichub.business;
 
-import java.util.*;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import java.util.UUID;
 
 public abstract class AudioElement {
 	protected String  	title;
@@ -9,7 +11,7 @@ public abstract class AudioElement {
 	protected int    	lengthInSeconds;
 	protected UUID    	uuid;
 	protected String	content;
-	
+
 	public AudioElement (String title, String artist, int lengthInSeconds, String id, String content) {
 		this.title = title;
 		this.artist = artist;
@@ -59,7 +61,12 @@ public abstract class AudioElement {
 	public String getTitle() {
 		return this.title;
 	}
-	
+
+	public String getContent() {
+		return this.content;
+	}
+
+
 	public String toString() {
 		return "Title = " + this.title + ", Artist = " + this.artist + ", Length = " + this.lengthInSeconds + ", Content = " + this.content;
 	}
