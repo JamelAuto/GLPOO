@@ -1,8 +1,9 @@
 package musichub.business;
 
-import java.util.*;
-import musichub.util.*;
+import musichub.util.XMLHandler;
 import org.w3c.dom.*;
+
+import java.util.*;
 
 class SortByDate implements Comparator<Album>
 {
@@ -127,7 +128,13 @@ public class MusicHub {
 		return songsInAlbum;		
 		
 	}
-	
+
+	public AudioElement getRandomElement(){
+		Random rand = new Random();
+		AudioElement randomElement = elements.get(rand.nextInt(elements.size()));
+		return randomElement;
+	}
+
 	public List<Song> getAlbumSongsSortedByGenre (String albumTitle) throws NoAlbumFoundException {
 		Album theAlbum = null;
 		ArrayList<Song> songsInAlbum = new ArrayList<Song>();

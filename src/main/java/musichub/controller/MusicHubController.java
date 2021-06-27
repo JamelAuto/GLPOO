@@ -193,6 +193,11 @@ public class MusicHubController {
                 System.out.println("Elements, albums and playlists saved!");
                 menuController();
                 break;
+            case 'r':
+                // play a random element
+                theHubView.displayElement(theHub.getRandomElement());
+                menuController();
+                break;
             case 'q':
                 //exit program
                 System.exit(0);
@@ -203,5 +208,4 @@ public class MusicHubController {
                 break;
         }
     }
-
 }

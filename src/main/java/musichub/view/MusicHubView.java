@@ -1,8 +1,9 @@
 package musichub.view;
 
-import musichub.business.*;
+import musichub.business.Album;
+import musichub.business.AudioElement;
+import musichub.business.Song;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -65,12 +66,17 @@ public class MusicHubView {
         System.out.println(consoleDisplay);
     }
 
+    public void displayElement(AudioElement consoleDisplay){
+        System.out.println(consoleDisplay);
+    }
+
     public void displayList(List consoleDisplay){
         System.out.println(consoleDisplay);
     }
     public void displayHelp(){
         System.out.println("Type h for available commands");
     }
+
     public void printAvailableCommands() {
         System.out.println("t: display the album titles, ordered by date");
         System.out.println("g: display songs of an album, ordered by genre");
@@ -83,7 +89,7 @@ public class MusicHubView {
         System.out.println("p: create a new playlist from existing songs and audio books");
         System.out.println("-: delete an existing playlist");
         System.out.println("s: save elements, albums, playlists");
+        System.out.println("r: play a random element");
         System.out.println("q: quit program");
     }
-
 }
