@@ -66,26 +66,20 @@ public class MusicHubController {
                 // add a new song
                 Song s = theHubView.addSongView();
                 theHub.addElement(s);
-                System.out.println("New element list: ");
                 Iterator<AudioElement> it = theHub.elements();
-                while (it.hasNext()) System.out.println(it.next().getTitle());
-                System.out.println("Song created!");
+                theHubView.addSongViewDisplay(it);
                 menuController();
                 break;
             case 'a':
                 // add a new album
                 Album a = theHubView.addAlbumView();
                 theHub.addAlbum(a);
-                System.out.println("New list of albums: ");
                 Iterator<Album> ita = theHub.albums();
-                while (ita.hasNext()) System.out.println(ita.next().getTitle());
-                System.out.println("Album created!");
+                theHubView.addAlumViewDisplay(ita);
                 menuController();
                 break;
             case '+':
                 //add a song to an album:
-                System.out.println("Add an existing song to an existing album");
-                System.out.println("Type the name of the song you wish to add. Available songs: ");
                 Iterator<AudioElement> itae = theHub.elements();
                 while (itae.hasNext()) {
                     AudioElement ae = itae.next();
@@ -113,20 +107,7 @@ public class MusicHubController {
                 break;
             case 'l':
                 // add a new audiobook
-                System.out.println("Enter a new audiobook: ");
-                System.out.println("AudioBook title: ");
-                String bTitle = theHubView.genericScanner();
-                System.out.println("AudioBook category (youth, novel, theater, documentary, speech)");
-                String bCategory = theHubView.genericScanner();
-                System.out.println("AudioBook artist: ");
-                String bArtist = theHubView.genericScanner();
-                System.out.println ("AudioBook length in seconds: ");
-                int bLength = Integer.parseInt(theHubView.genericScanner());
-                System.out.println("AudioBook content: ");
-                String bContent = theHubView.genericScanner();
-                System.out.println("AudioBook language (french, english, italian, spanish, german)");
-                String bLanguage = theHubView.genericScanner();
-                AudioBook b = new AudioBook (bTitle, bArtist, bLength, bContent, bLanguage, bCategory);
+                AudioBook b = theHubView.addAudioBookView();
                 theHub.addElement(b);
                 System.out.println("Audiobook created! New element list: ");
                 Iterator<AudioElement> itl = theHub.elements();

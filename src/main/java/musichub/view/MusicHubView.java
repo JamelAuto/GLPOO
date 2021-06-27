@@ -1,9 +1,11 @@
 package musichub.view;
 
 import musichub.business.Album;
+import musichub.business.AudioBook;
 import musichub.business.AudioElement;
 import musichub.business.Song;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,17 +25,44 @@ public class MusicHubView {
                 case 'e':
                     System.out.println("Enter element content full name");
                     break;
-
+                case '+':
+                    System.out.println("Add an existing song to an existing album");
+                    System.out.println("Type the name of the song you wish to add. Available songs: ");
+                    break;
             }
             return choice.charAt(0);
         }
         return 'q';
     }
 
-    public String genericScanner(){
+    public  String genericScanner(){
         Scanner scan = new Scanner(System.in);
         String string = scan.nextLine();
         return string;
+    }
+
+    public AudioBook addAudioBookView(){
+        System.out.println("Enter a new audiobook: ");
+        System.out.println("AudioBook title: ");
+        String bTitle = genericScanner();
+        System.out.println("AudioBook category (youth, novel, theater, documentary, speech)");
+        String bCategory = genericScanner();
+        System.out.println("AudioBook artist: ");
+        String bArtist = genericScanner();
+        System.out.println ("AudioBook length in seconds: ");
+        int bLength = Integer.parseInt(genericScanner());
+        System.out.println("AudioBook content: ");
+        String bContent = genericScanner();
+        System.out.println("AudioBook language (french, english, italian, spanish, german)");
+        String bLanguage = genericScanner();
+        AudioBook b = new AudioBook (bTitle, bArtist, bLength, bContent, bLanguage, bCategory);
+        return b;
+    }
+
+    public void addSongViewDisplay(Iterator<AudioElement> it){
+        System.out.println("New element list: ");
+        while (it.hasNext()) System.out.println(it.next().getTitle());
+        System.out.println("Song created!");
     }
 
     public Song addSongView(){
@@ -50,6 +79,12 @@ public class MusicHubView {
         String content = genericScanner();
         Song s = new Song (title, artist, length, content, genre);
         return s;
+    }
+
+    public void addAlumViewDisplay(Iterator<Album> ita){
+        System.out.println("New list of albums: ");
+        while (ita.hasNext()) System.out.println(ita.next().getTitle());
+        System.out.println("Album created!");
     }
 
     public Album addAlbumView(){
@@ -77,6 +112,7 @@ public class MusicHubView {
     public void displayList(List consoleDisplay){
         System.out.println(consoleDisplay);
     }
+
     public void displayHelp(){
         System.out.println("Type h for available commands");
     }

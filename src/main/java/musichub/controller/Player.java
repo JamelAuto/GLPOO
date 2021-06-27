@@ -1,4 +1,4 @@
-package musichub.business;
+package musichub.controller;
 
 import javax.sound.sampled.*;
 import java.io.File;
