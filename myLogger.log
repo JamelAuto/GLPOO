@@ -233,3 +233,181 @@
   </exception>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-06-28T18:58:10.605301100Z</date>
+  <millis>1624906690605</millis>
+  <nanos>301100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>musichub.controller.MusicHubController</class>
+  <method>menuController</method>
+  <thread>1</thread>
+  <message>Error :</message>
+  <exception>
+    <message>musichub.business.NoElementFoundException: Element n not found!</message>
+    <frame>
+      <class>musichub.business.MusicHub</class>
+      <method>addElementToPlayList</method>
+      <line>223</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>menuController</method>
+      <line>123</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>mainController</method>
+      <line>20</line>
+    </frame>
+    <frame>
+      <class>musichub.Main</class>
+      <method>main</method>
+      <line>17</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2021-06-28T18:59:13.791581600Z</date>
+  <millis>1624906753791</millis>
+  <nanos>581600</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>musichub.controller.MusicHubController</class>
+  <method>menuController</method>
+  <thread>1</thread>
+  <message>Error :</message>
+  <exception>
+    <message>musichub.business.NoElementFoundException: Element q not found!</message>
+    <frame>
+      <class>musichub.business.MusicHub</class>
+      <method>addElementToPlayList</method>
+      <line>223</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>menuController</method>
+      <line>123</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>mainController</method>
+      <line>20</line>
+    </frame>
+    <frame>
+      <class>musichub.Main</class>
+      <method>main</method>
+      <line>17</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2021-06-28T18:59:17.119610Z</date>
+  <millis>1624906757119</millis>
+  <nanos>610000</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>musichub.controller.MusicHubController</class>
+  <method>menuController</method>
+  <thread>1</thread>
+  <message>Error :</message>
+  <exception>
+    <message>musichub.business.NoElementFoundException: Element  not found!</message>
+    <frame>
+      <class>musichub.business.MusicHub</class>
+      <method>addElementToPlayList</method>
+      <line>223</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>menuController</method>
+      <line>123</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>mainController</method>
+      <line>20</line>
+    </frame>
+    <frame>
+      <class>musichub.Main</class>
+      <method>main</method>
+      <line>17</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2021-06-28T18:59:21.750522500Z</date>
+  <millis>1624906761750</millis>
+  <nanos>522500</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>musichub.controller.MusicHubController</class>
+  <method>menuController</method>
+  <thread>1</thread>
+  <message>Error :</message>
+  <exception>
+    <message>musichub.business.NoElementFoundException: Element n not found!</message>
+    <frame>
+      <class>musichub.business.MusicHub</class>
+      <method>addElementToPlayList</method>
+      <line>223</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>menuController</method>
+      <line>123</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>mainController</method>
+      <line>20</line>
+    </frame>
+    <frame>
+      <class>musichub.Main</class>
+      <method>main</method>
+      <line>17</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2021-06-28T18:59:24.405939300Z</date>
+  <millis>1624906764405</millis>
+  <nanos>939300</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>musichub.controller.MusicHubController</class>
+  <method>menuController</method>
+  <thread>1</thread>
+  <message>Error :</message>
+  <exception>
+    <message>musichub.business.NoElementFoundException: Element q not found!</message>
+    <frame>
+      <class>musichub.business.MusicHub</class>
+      <method>addElementToPlayList</method>
+      <line>223</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>menuController</method>
+      <line>123</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>mainController</method>
+      <line>20</line>
+    </frame>
+    <frame>
+      <class>musichub.Main</class>
+      <method>main</method>
+      <line>17</line>
+    </frame>
+  </exception>
+</record>

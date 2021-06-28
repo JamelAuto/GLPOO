@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 
 public class MusicHubView {
     private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    //menu
     public char menuView(){
         Scanner scan = new Scanner(System.in);
         String choice = scan.nextLine();
