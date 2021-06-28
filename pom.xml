@@ -6,6 +6,7 @@
 
     <groupId>Maven</groupId>
     <artifactId>GLPOO</artifactId>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -63,6 +64,8 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.0.2</version>
+
         </dependency>
-    </dependencies>
+
+         </dependencies>
 </project>

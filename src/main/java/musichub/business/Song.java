@@ -2,9 +2,13 @@ package musichub.business;
 
 import org.w3c.dom.*;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class Song extends AudioElement {
 	private Genre genre;
+	private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
 	public Song (String title, String artist, int length, String uid, String content, String genre) {
 		super (title, artist, length, uid, content);
@@ -21,7 +25,7 @@ public class Song extends AudioElement {
 		try {
 			this.setGenre(xmlElement.getElementsByTagName("genre").item(0).getTextContent());
 		} catch (Exception ex) {
-			throw ex;
+			logr.log(Level.SEVERE, "Error :", ex);
 		}
 	}
 	

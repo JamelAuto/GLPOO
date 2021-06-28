@@ -3,6 +3,8 @@ package musichub.business;
 import java.util.*;
 import org.w3c.dom.*;
 import java.text.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 // DESSIGN PATERN Singleton naïf (Monothread)
@@ -14,7 +16,7 @@ public class Album {
 	private UUID uuid;
 	private Date date;
 	private ArrayList<UUID> songsUIDs;
-
+	private final static Logger logr= Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	private Album (String title, String artist, int lengthInSeconds, String id, String date, ArrayList<UUID> songsUIDs) {
 		this.title = title;
@@ -26,6 +28,7 @@ public class Album {
 			this.date = sdf.parse(date);
 		} catch (ParseException ex) {
 			ex.printStackTrace();
+			logr.log(Level.SEVERE, "Error :", ex);
 		}
 		this.songsUIDs = songsUIDs;
 	}
@@ -40,6 +43,7 @@ public class Album {
 			this.date = sdf.parse(date);
 		} catch (ParseException ex) {
 			ex.printStackTrace();
+			logr.log(Level.SEVERE, "Error :", ex);
 		}
 		this.songsUIDs = new ArrayList<UUID>();
 	}
@@ -60,6 +64,7 @@ public class Album {
 			}
 			catch (Exception ex) {
 				System.out.println ("Empty album UUID, will create a new one");
+				logr.log(Level.SEVERE, "Error :", ex);
 			}
 			if ((uuid == null)  || (uuid.isEmpty()))
 				this.uuid = UUID.randomUUID();
@@ -82,12 +87,14 @@ public class Album {
 							this.addSong(UUID.fromString(songElement.getTextContent()));
 						} catch (Exception ex) {
 							ex.printStackTrace();
+							logr.log(Level.SEVERE, "Error :", ex);
 						}
 					}
 				} 
 			}
 		} catch (Exception ex) {
-			throw ex;
+
+			logr.log(Level.SEVERE, "Error :", ex);
 		}
 	}
 	
