@@ -33,7 +33,7 @@ public class Album {
 		this.songsUIDs = songsUIDs;
 	}
 
-	private Album (String title, String artist, int lengthInSeconds, String date) {
+	Album(String title, String artist, int lengthInSeconds, String date) {
 		this.title = title;
 		this.artist = artist;
 		this.lengthInSeconds = lengthInSeconds;

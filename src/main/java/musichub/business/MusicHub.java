@@ -50,16 +50,19 @@ public class MusicHub {
 		this.loadPlaylists();
 	}
 	
-	public void addElement(AudioElement element) {
+	public boolean addElement(AudioElement element) {
 		elements.add(element);
+		return true;
 	}
 	
-	public void addAlbum(Album album) {
+	public boolean addAlbum(Album album) {
 		albums.add(album);
+		return true;
 	}
 	
-	public void addPlaylist(PlayList playlist) {
+	public boolean addPlaylist(PlayList playlist) {
 		playlists.add(playlist);
+		return true;
 	}
 	
 	public void deletePlayList(String playListTitle) throws NoPlayListFoundException {
@@ -350,5 +353,6 @@ public class MusicHub {
 			}
 		}
 		xmlHandler.createXMLFile(document, ELEMENTS_FILE_PATH);
- 	}	
+ 	}
+
 }

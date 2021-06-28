@@ -5,21 +5,30 @@ import org.junit.jupiter.api.Test;
 import java.util.Iterator;
 
 class SongTest {
-
+    MusicHub theHub = new MusicHub();
+    Album a = new Album("TEST1","TEST2",42,"TEST3");
+    MusicHub musicHubPlaylistApresSupprimer = new MusicHub();
+    PlayList p = new PlayList("TEST9000");
+    PlayList m = new PlayList ("");
     @Test
-    void testAddSong() {
-        MusicHub theHub = new MusicHub();
-        String title = "TEST";
-        String genre = "JAZZ";
-        String artist = "JAMEL";
-        int length = 42;
-        String content = "C://TEST/TEST";
-        Song s = new Song(title, artist, length, content, genre);
-        theHub.addElement(s);
-        Iterator it = theHub.elements();
-        while(it.hasNext()) {
-            System.out.println(((AudioElement)it.next()).getTitle());
+    void addElementTest() {
+            assertTrue(theHub.addElement(null));
         }
+        @Test
+        void addAlbumTest(){
+            assertTrue(theHub.addAlbum(null));
+            assertFalse(theHub.addAlbum(a));
+        }
+        @Test
+    void addPlaylistTest(){
+            assertTrue(theHub.addPlaylist(p));
+            assertFalse(theHub.addPlaylist(m));
+        }
+        @Test
+    void deleteAlbumTest() throws NoPlayListFoundException {
+        theHub.addAlbum(a);
+            musicHubPlaylistApresSupprimer.addAlbum(a);
+            musicHubPlaylistApresSupprimer.deletePlayList("TEST1");
 
+        }
             }
-}
