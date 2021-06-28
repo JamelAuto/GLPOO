@@ -14,7 +14,7 @@ public class Song extends AudioElement {
 		super (title, artist, length, uid, content);
 		this.setGenre(genre);
 	}
-	
+
 	public Song (String title, String artist, int length, String content, String genre) {
 		super (title, artist, length, content);
 		this.setGenre(genre);
@@ -28,8 +28,8 @@ public class Song extends AudioElement {
 			logr.log(Level.SEVERE, "Error :", ex);
 		}
 	}
-	
-	public void setGenre (String genre) {	
+
+	public boolean setGenre (String genre) {
 		switch (genre.toLowerCase()) {
 			case "jazz":
 			default:
@@ -51,6 +51,7 @@ public class Song extends AudioElement {
 				this.genre = Genre.RAP;
 				break;				
 		}
+		return true;
 	} 
 
 	public String getGenre () {
