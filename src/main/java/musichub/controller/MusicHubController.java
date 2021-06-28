@@ -8,9 +8,10 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.*;
 
 public class MusicHubController {
-
+    private static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private MusicHub theHub = new MusicHub ();
     private MusicHubView theHubView = new MusicHubView();
 
@@ -41,6 +42,7 @@ public class MusicHubController {
                     theHubView.displayList(albumSongs);
                 } catch (NoAlbumFoundException ex) {
                     System.out.println("No album found with the requested title " + ex.getMessage());
+                    logr.log(Level.SEVERE, "Error :", ex);
                 }
                 menuController();
                 break;
@@ -53,6 +55,7 @@ public class MusicHubController {
                     theHubView.displayList(albumSongs);
                 } catch (NoAlbumFoundException ex) {
                     System.out.println("No album found with the requested title " + ex.getMessage());
+                    logr.log(Level.SEVERE, "Error :", ex);
                 }
                 menuController();
                 break;
@@ -88,8 +91,10 @@ public class MusicHubController {
                     theHub.addElementToAlbum(songTitle, titleAlbum);
                 } catch (NoAlbumFoundException ex){
                     System.out.println (ex.getMessage());
+                    logr.log(Level.SEVERE, "Error :", ex);
                 } catch (NoElementFoundException ex){
                     System.out.println (ex.getMessage());
+                    logr.log(Level.SEVERE, "Error :", ex);
                 }
                 System.out.println("Song added to the album!");
                 menuController();
@@ -119,8 +124,10 @@ public class MusicHubController {
                         System.out.println("Playlist created!");
                     } catch (NoPlayListFoundException ex) {
                         System.out.println (ex.getMessage());
+                        logr.log(Level.SEVERE, "Error :", ex);
                     } catch (NoElementFoundException ex) {
                         System.out.println (ex.getMessage());
+                        logr.log(Level.SEVERE, "Error :", ex);
                     }
 
                     System.out.println("Type y to add a new one, n to end");
@@ -137,6 +144,7 @@ public class MusicHubController {
                     System.out.println("Playlist deleted!");
                 }	catch (NoPlayListFoundException ex) {
                     System.out.println (ex.getMessage());
+                    logr.log(Level.SEVERE, "Error :", ex);
                 }
                 menuController();
 
@@ -164,6 +172,7 @@ public class MusicHubController {
                 menuController();
                 break;
             case 'q':
+                logr.log(Level.INFO, "Quit program");
                 //exit program
                 System.exit(0);
             default:

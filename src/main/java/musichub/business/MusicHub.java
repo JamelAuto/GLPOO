@@ -4,6 +4,8 @@ import musichub.util.XMLHandler;
 import org.w3c.dom.*;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 class SortByDate implements Comparator<Album>
 {
@@ -27,6 +29,7 @@ class SortByAuthor implements Comparator<AudioElement>
 }
 	
 public class MusicHub {
+	private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private List<Album> albums;
 	private List<PlayList> playlists;
 	private List<AudioElement> elements;
@@ -218,8 +221,9 @@ public class MusicHub {
                 playlists.set(i,thePlaylist);
             }
             else throw new NoElementFoundException("Element " + elementTitle + " not found!");
-			
+			logr.log(Level.SEVERE, "Element " + elementTitle + " not found!");
 		} else throw new NoPlayListFoundException("Playlist " + playListTitle + " not found!");
+		logr.log(Level.SEVERE, "Element " + elementTitle + " not found!");
 		
 	}
 	
@@ -235,6 +239,7 @@ public class MusicHub {
 						this.addAlbum(new Album (albumElement));
 					} catch (Exception ex) {
 						System.out.println ("Something is wrong with the XML album element");
+						logr.log(Level.SEVERE, "Error :", ex);
 					}
 				}
 			}  
@@ -253,6 +258,7 @@ public class MusicHub {
 						this.addPlaylist(new PlayList (playlistElement));
 					} catch (Exception ex) {
 						System.out.println ("Something is wrong with the XML playlist element");
+						logr.log(Level.SEVERE, "Error :", ex);
 					}
 				}
 			}  
@@ -272,6 +278,7 @@ public class MusicHub {
 						this.addElement(newSong);
 					} catch (Exception ex) 	{
 						System.out.println ("Something is wrong with the XML song element");
+						logr.log(Level.SEVERE, "Error :", ex);
 					}
 				}
 				if (audioElement.getNodeName().equals("audiobook")) 	{
@@ -280,6 +287,7 @@ public class MusicHub {
 						this.addElement(newAudioBook);
 					} catch (Exception ex) 	{
 						System.out.println ("Something is wrong with the XML audiobook element");
+						logr.log(Level.SEVERE, "Error :", ex);
 					}
 				}
 			}  

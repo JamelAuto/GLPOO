@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-06-28T12:46:36.169073200Z</date>
+  <millis>1624884396169</millis>
+  <nanos>73200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>musichub.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello world</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-06-28T12:48:16.532456800Z</date>
+  <millis>1624884496532</millis>
+  <nanos>456800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>musichub.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello world</message>
+</record>
+<record>
+  <date>2021-06-28T12:48:16.544928600Z</date>
+  <millis>1624884496544</millis>
+  <nanos>928600</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>musichub.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello world CRITICAL ERROR </message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-06-28T13:18:01.963253300Z</date>
+  <millis>1624886281963</millis>
+  <nanos>253300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>musichub.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello world</message>
+</record>
+<record>
+  <date>2021-06-28T13:18:06.195526700Z</date>
+  <millis>1624886286195</millis>
+  <nanos>526700</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>musichub.controller.MusicHubController</class>
+  <method>menuController</method>
+  <thread>1</thread>
+  <message>Quit program</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-06-28T13:51:08.525168200Z</date>
+  <millis>1624888268525</millis>
+  <nanos>168200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>musichub.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello world</message>
+</record>
+<record>
+  <date>2021-06-28T13:51:29.487980900Z</date>
+  <millis>1624888289487</millis>
+  <nanos>980900</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>musichub.controller.MusicHubController</class>
+  <method>menuController</method>
+  <thread>1</thread>
+  <message>Error :</message>
+  <exception>
+    <message>musichub.business.NoAlbumFoundException: No album with this title in the MusicHub!</message>
+    <frame>
+      <class>musichub.business.MusicHub</class>
+      <method>getAlbumSongs</method>
+      <line>119</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>menuController</method>
+      <line>53</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>mainController</method>
+      <line>20</line>
+    </frame>
+    <frame>
+      <class>musichub.Main</class>
+      <method>main</method>
+      <line>18</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-06-28T14:20:04.688013500Z</date>
+  <millis>1624890004688</millis>
+  <nanos>13500</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>musichub.view.MusicHubView</class>
+  <method>addAlbumView</method>
+  <thread>1</thread>
+  <message>Error :</message>
+  <exception>
+    <message>java.lang.NumberFormatException: For input string: "a"</message>
+    <frame>
+      <class>java.lang.NumberFormatException</class>
+      <method>forInputString</method>
+      <line>67</line>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>parseInt</method>
+      <line>660</line>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>parseInt</method>
+      <line>778</line>
+    </frame>
+    <frame>
+      <class>musichub.view.MusicHubView</class>
+      <method>addAlbumView</method>
+      <line>101</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>menuController</method>
+      <line>78</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>mainController</method>
+      <line>20</line>
+    </frame>
+    <frame>
+      <class>musichub.Main</class>
+      <method>main</method>
+      <line>17</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-06-28T14:28:12.435721900Z</date>
+  <millis>1624890492435</millis>
+  <nanos>721900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>musichub.view.MusicHubView</class>
+  <method>addAlbumView</method>
+  <thread>1</thread>
+  <message>Error :</message>
+  <exception>
+    <message>java.lang.NumberFormatException: For input string: "a"</message>
+    <frame>
+      <class>java.lang.NumberFormatException</class>
+      <method>forInputString</method>
+      <line>67</line>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>parseInt</method>
+      <line>660</line>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>parseInt</method>
+      <line>778</line>
+    </frame>
+    <frame>
+      <class>musichub.view.MusicHubView</class>
+      <method>addAlbumView</method>
+      <line>101</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>menuController</method>
+      <line>78</line>
+    </frame>
+    <frame>
+      <class>musichub.controller.MusicHubController</class>
+      <method>mainController</method>
+      <line>20</line>
+    </frame>
+    <frame>
+      <class>musichub.Main</class>
+      <method>main</method>
+      <line>17</line>
+    </frame>
+  </exception>
+</record>
+</log>

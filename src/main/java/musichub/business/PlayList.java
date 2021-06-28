@@ -1,9 +1,13 @@
 package musichub.business;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.w3c.dom.*;
 
 public class PlayList {
+	private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private String title;
 	private UUID uuid;
 	private ArrayList<UUID> elementUUIDs;
@@ -63,13 +67,14 @@ public class PlayList {
 						try {
 							this.addElement(UUID.fromString(elementElement.getTextContent()));
 						} catch (Exception ex) {
+							logr.log(Level.SEVERE, "Error :", ex);
 							ex.printStackTrace();
 						}
 					}
 				} 
 			}
 		} catch (Exception ex) {
-			throw ex;
+			logr.log(Level.SEVERE, "Error :", ex);
 		}
 	}
 	

@@ -4,8 +4,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class AudioElement {
+	private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	protected String  	title;
 	protected String 	artist;
 	protected int    	lengthInSeconds;
@@ -41,12 +44,13 @@ public abstract class AudioElement {
 			}
 			catch (Exception ex) {
 				System.out.println ("Empty element UUID, will create a new one");
+				logr.log(Level.SEVERE, "Error :", ex);
 			}
 			if ((uuid == null)  || (uuid.isEmpty()))
 				this.uuid = UUID.randomUUID();
 			else this.uuid = UUID.fromString(uuid);
 		} catch (Exception ex) {
-			throw ex;
+			logr.log(Level.SEVERE, "Error :", ex);
 		}
 	}
 	

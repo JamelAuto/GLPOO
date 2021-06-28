@@ -1,12 +1,16 @@
 package musichub.business;
 
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.w3c.dom.*;
 
 public class AudioBook extends AudioElement {
 
 	private Language language;
 	private Category category;
+	private static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
 	public AudioBook (String title, String artist, int lengthInSeconds, String uid, String content, String language, String category) {
 		super (title, artist, lengthInSeconds, uid, content);
@@ -25,7 +29,7 @@ public class AudioBook extends AudioElement {
 			this.setLanguage(xmlElement.getElementsByTagName("language").item(0).getTextContent());
 			this.setCategory(xmlElement.getElementsByTagName("category").item(0).getTextContent());
 		} catch (Exception ex) {
-			throw ex;
+			logr.log(Level.SEVERE, "Error :", ex);
 		}
 	}
 	

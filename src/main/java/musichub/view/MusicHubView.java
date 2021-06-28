@@ -5,9 +5,11 @@ import musichub.business.*;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MusicHubView {
-
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public char menuView(){
         Scanner scan = new Scanner(System.in);
         String choice = scan.nextLine();
@@ -117,6 +119,7 @@ public class MusicHubView {
     }
 
     public Song addSongView(){
+        int length=0;
         System.out.println("Enter a new song: ");
         System.out.println("Song title: ");
         String title = genericScanner();
@@ -125,7 +128,13 @@ public class MusicHubView {
         System.out.println("Song artist: ");
         String artist = genericScanner();
         System.out.println ("Song length in seconds: ");
-        int length = Integer.parseInt(genericScanner());
+        try {
+            length = Integer.parseInt(genericScanner());
+        }
+        catch (Exception ex){
+            logr.log(Level.WARNING, "Error :", ex);
+            System.exit(0);
+        }
         System.out.println("Song content: ");
         String content = genericScanner();
         Song s = new Song (title, artist, length, content, genre);
@@ -139,13 +148,20 @@ public class MusicHubView {
     }
 
     public Album addAlbumView(){
-        System.out.println("Enter a new album: ");
+         int aLength = 0;
+          System.out.println("Enter a new album: ");
         System.out.println("Album title: ");
         String aTitle = genericScanner();
         System.out.println("Album artist: ");
         String aArtist = genericScanner();
         System.out.println ("Album length in seconds: ");
-        int aLength = Integer.parseInt(genericScanner());
+        try {
+            aLength = Integer.parseInt(genericScanner());
+        }
+        catch (Exception ex){
+            logr.log(Level.WARNING, "Error :", ex);
+            System.exit(0);
+        }
         System.out.println("Album date as YYYY-DD-MM: ");
         String aDate = genericScanner();
         Album a =  Album.getInstance(aTitle, aArtist, aLength, aDate);
