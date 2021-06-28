@@ -5,8 +5,9 @@ import org.w3c.dom.*;
 import java.text.*;
 
 
-
+// DESSIGN PATERN Singleton naïf (Monothread)
 public class Album {
+	private static Album instance;
 	private String title;
 	private String artist;
 	private int lengthInSeconds;
@@ -14,7 +15,8 @@ public class Album {
 	private Date date;
 	private ArrayList<UUID> songsUIDs;
 
-	public Album (String title, String artist, int lengthInSeconds, String id, String date, ArrayList<UUID> songsUIDs) {
+
+	private Album (String title, String artist, int lengthInSeconds, String id, String date, ArrayList<UUID> songsUIDs) {
 		this.title = title;
 		this.artist = artist;
 		this.lengthInSeconds = lengthInSeconds;
@@ -27,8 +29,8 @@ public class Album {
 		}
 		this.songsUIDs = songsUIDs;
 	}
-	
-	public Album (String title, String artist, int lengthInSeconds, String date) {
+
+	private Album (String title, String artist, int lengthInSeconds, String date) {
 		this.title = title;
 		this.artist = artist;
 		this.lengthInSeconds = lengthInSeconds;
@@ -40,6 +42,12 @@ public class Album {
 			ex.printStackTrace();
 		}
 		this.songsUIDs = new ArrayList<UUID>();
+	}
+	public static Album getInstance(String title, String artist, int lengthInSeconds, String date){
+		if (instance == null ){
+			instance = new Album(title,  artist,  lengthInSeconds, date);
+		}
+		return instance;
 	}
 	
 	public Album (Element xmlElement) throws Exception {
